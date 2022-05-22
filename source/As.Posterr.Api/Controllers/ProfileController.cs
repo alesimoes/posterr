@@ -75,7 +75,7 @@ namespace As.Posterr.Api.Controllers
         [Route("{id}/follow")]
         public async Task<IActionResult> Follow(string id)
         {
-            await _mediator.PublishAsync(new FollowProfileRequest { ProfileId = Guid.Parse(id)});
+            await _mediator.PublishAsync(new FollowProfileRequest { ProfileId = Guid.Parse(id) });
             return Ok();
         }
 
@@ -87,8 +87,32 @@ namespace As.Posterr.Api.Controllers
         [Route("{id}/unfollow")]
         public async Task<IActionResult> Unfollow(string id)
         {
-            await _mediator.PublishAsync(new UnFollowProfileRequest { ProfileId = Guid.Parse(id)});
+            await _mediator.PublishAsync(new UnFollowProfileRequest { ProfileId = Guid.Parse(id) });
             return Ok();
+        }
+
+        [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(List<ProfileResponse>))]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [Route("{id}/followers")]
+        public async Task<IActionResult> Followers(string id, [FromQuery] int index)
+        {
+            var result = await _mediator.SendAsync<List<ProfileResponse>>(new GetFollowersRequest { ProfileId = Guid.Parse(id), Index = index });
+            return Ok(result);
+        }
+
+        [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(List<ProfileResponse>))]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [Route("{id}/following")]
+        public async Task<IActionResult> Following(string id, [FromQuery] int index)
+        {
+            var result = await _mediator.SendAsync<List<ProfileResponse>>(new GetFollowingRequest { ProfileId = Guid.Parse(id), Index = index });
+            return Ok(result);
         }
     }
 }

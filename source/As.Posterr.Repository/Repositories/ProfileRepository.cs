@@ -49,7 +49,7 @@ namespace As.Posterr.Repositories.MongoDB
 
             var filter = filterCollection.In(f => f.Id, following);
 
-            return _context.Profiles.Find(filter).SortBy(s => s.Username.ToString()).Skip(pageIndex * pageLength).Limit(pageLength).ToList();
+            return _context.Profiles.Find(filter).SortBy(s => s.Username).Skip(pageIndex * pageLength).Limit(pageLength).ToList();
         }
 
         public async Task<List<Profile>> GetFollowers(Guid profileId, int pageIndex, int pageLength)
@@ -62,7 +62,7 @@ namespace As.Posterr.Repositories.MongoDB
 
             var filter = filterCollection.In(f => f.Id, followers);
 
-            return _context.Profiles.Find(filter).SortBy(s => s.Username.ToString()).Skip(pageIndex * pageLength).Limit(pageLength).ToList();
+            return _context.Profiles.Find(filter).SortBy(s => s.Username).Skip(pageIndex * pageLength).Limit(pageLength).ToList();
         }
 
         public async Task<Profile> GetFollowing(Guid followingProfileId, Guid followerProfileId)
