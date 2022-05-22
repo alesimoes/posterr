@@ -27,8 +27,13 @@ namespace As.Posterr.Application.UseCases
         public async Task<List<ProfileResponse>> Execute(GetFollowersRequest request)
         {
             var currentUserProfile = await _profileRepository.GetByUserId(_securityService.LoggedUser.Id);
-            var following  = await _profileRepository.GetFollowers(request.ProfileId, request.Index, 10);
-            return following.Select(f => f.ToResponse(null, currentUserProfile.Id == f.Id)).ToList();
+            if (!request.ProfileId.HasValue)
+            {  
+                request.ProfileId = currentUserProfile.Id;
+            }
+
+            var followers  = await _profileRepository.GetFollowers(request.ProfileId.GetValueOrDefault(), request.Index, 10);
+            return followers.Select(f => f.ToResponse(null, currentUserProfile.Id == f.Id)).ToList();
         }
     }
 }

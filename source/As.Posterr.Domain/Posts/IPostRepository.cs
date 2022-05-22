@@ -13,5 +13,6 @@ namespace As.Posterr.Domain.Posts
         Task<List<Post>> FilterFollowingPosts(Guid profileId, int pageIndex, int pageLength);
         Task Add(Post post);
         List<Post> FilterProfilePosts(Guid profileId, int pageIndex, int pageLength);
+        void Delete(Post post);
     }
 }

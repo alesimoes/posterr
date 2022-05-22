@@ -8,7 +8,7 @@ namespace As.Posterr.Domain.Follows
 {
     public class Follow
     {
-        public Guid Id { get; set; }
+        public Guid Id { get; protected set; }
         public Guid Following { get; protected set; }
         public Guid Followed { get; protected set; }
         public DateTime CreatedDate { get; protected set; }

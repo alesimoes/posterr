@@ -16,25 +16,34 @@ namespace As.Posterr.Domain.Profiles
         private readonly IProfileRepository _repository;
         private readonly ISecurityService _securityService;
         private readonly IEventService _eventService;
+        private readonly IPostRepository _postRepository;
         private readonly IFollowRepository _followRepository;
 
         public ProfileService(IProfileRepository repository,
             ISecurityService securityService,
             IFollowRepository followRepository,
+            IPostRepository postRepository,
             IEventService eventService
             )
         {
             _repository = repository;
             _securityService = securityService;
             _eventService = eventService;
+            _postRepository = postRepository;
             _followRepository = followRepository;
         }
 
         public async Task UpdateProfilePosts(Post post)
         {
             var profile = await _repository.Get(post.ProfileId);
-            profile.UpdatePosts(post);
+            var todayPosts = profile.LatestPosts.Where(c => c.CreatedDate.Date == DateTime.UtcNow.Date);
+            if (todayPosts.Count() > 4)
+            {
+                _postRepository.Delete(post);
+                throw new LimitPostsExceededException(5);
+            }
 
+            profile.UpdatePosts(post);
             _eventService.Events.Add(new ProfileUpdatedEvent(profile));
             await _repository.Update(profile);
             await _eventService.Publish();
@@ -45,7 +54,7 @@ namespace As.Posterr.Domain.Profiles
             var profileFollow = await _repository.Get(profileId);
             if (profileFollow == null)
             {
-                throw new NotFound(Fields.Profile);
+                throw new NotFoundException(Fields.Profile);
             }
 
             var profile = await _repository.GetByUserId(_securityService.LoggedUser.Id);
@@ -78,7 +87,7 @@ namespace As.Posterr.Domain.Profiles
             var profileFollow = await _repository.Get(profileId);
             if (profileFollow == null)
             {
-                throw new NotFound(Fields.Profile);
+                throw new NotFoundException(Fields.Profile);
             }
 
             var profile = await _repository.GetByUserId(_securityService.LoggedUser.Id);

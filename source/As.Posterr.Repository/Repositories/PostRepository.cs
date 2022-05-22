@@ -48,5 +48,10 @@ namespace As.Posterr.Repositories.MongoDB
         {
             return _context.Posts.Find(f => f.ProfileId == profileId).SortByDescending(s => s.CreatedDate).Skip(pageIndex * pageLength).Limit(pageLength).ToList();
         }
+
+        public void Delete(Post post)
+        {
+             _context.Posts.DeleteMany(d => d.Id == post.Id);
+        }
     }
 }

@@ -19,7 +19,7 @@ namespace As.Posterr.Domain.Profiles
         public int FollowersCount { get; protected set; }
         public int FollowingCount { get; protected set; }
         public int PostsCount { get; protected set; }
-        public List<Post> LatestPosts { get; protected set; }
+        public List<Post> LatestPosts { get; protected internal set; }
         
         public Profile(Guid id, Guid userId, string username)
         {

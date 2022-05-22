@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace As.Posterr.Domain.Exceptions
 {
-    public class NotFound : DomainException
+    public class NotFoundException : DomainException
     {
-        public NotFound(string entity) : base(string.Format(Messages.NotFound,entity))
+        public NotFoundException(string entity) : base(string.Format(Messages.NotFound,entity))
         {
         }
     }

@@ -48,7 +48,6 @@ namespace As.Posterr.Domain.Posts
            
             _eventService.Events.Add(new PostCreatedEvent(post));
             await _repository.Add(post);
-            
             await _eventService.Publish();
             return true;
         }

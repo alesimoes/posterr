@@ -8,7 +8,7 @@ namespace As.Posterr.Application.Contracts.Profiles
 {
     public class GetFollowingRequest
     {
-        public Guid ProfileId { get; set; }
+        public Guid? ProfileId { get; set; }
         public int Index { get; set; }
     }
 }
