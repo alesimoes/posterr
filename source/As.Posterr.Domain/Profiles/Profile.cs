@@ -41,7 +41,7 @@ namespace As.Posterr.Domain.Profiles
             }
             this.PostsCount++;
             this.LatestPosts.Add(post);
-            this.LatestPosts = this.LatestPosts.Take(5).ToList();
+            this.LatestPosts = this.LatestPosts.TakeLast(5).ToList();
         }
 
         internal void Follow()
