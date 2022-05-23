@@ -14,8 +14,10 @@ Running migrations to populate the DEMO database with Test profiles
     $ \source\As.Posterr.Repositories.MongoDB.Migrations> dotnet run
 
 There are two basic profiles that can be used as logged user to test follow and unfollow features. They are in appsettigs.json
-    "UserId": "E9F03E73-F8DA-4807-B744-88D21CBEE311" //alexsimoes
-    "UserId": "8E955438-E33E-45FF-BDEE-54E7AA74464A" //testUser1
+
+    $ "UserId": "E9F03E73-F8DA-4807-B744-88D21CBEE311" //alexsimoes
+
+    $ "UserId": "8E955438-E33E-45FF-BDEE-54E7AA74464A" //testUser1
 
 There are a Postman Collection inside the folder that can help with all requests.
 
@@ -24,17 +26,26 @@ There are a Postman Collection inside the folder that can help with all requests
 # Planning
 ## Reply a post
 How should the reply should be work?
+
 The character to identify the reply in test is "@"?
+
 Should we create an autocomplete to load profiles when start writting @ in the text?
+
 How many @ users can be linked to the post?
+
 Should user receive any notification or something like that when is tagged in a Post?
 
 ## Design of solution
 When post is send to the API and there is a Value object, TextPost. 
+
 The value object was created to manipulate and extract tags, keywords and postReply.
+
 A new List<Username> should be added in TextPost and using Regex extract all postReply that start with @ something like this '/@\w+/'
+
 In domain service when post is created, there is an event called PostCreated that will trigger a new EventHandler that will handle the new feature Reply Post.
+
 The event handler PostReplyEventHandler will get a list of UserName validate that all username exists in database and enrich the Post entity with the List of ProfileIds in a new Property LinkedProfiles.
+
 A new flag in Post to identify if the Post is a reply might be good to improve performance.
 
 ### Changes in Post entity.
