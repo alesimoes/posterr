@@ -34,7 +34,7 @@ namespace As.Posterr.Application.UseCases
             }
          
             var following  = await _profileRepository.GetFollowing(request.ProfileId.GetValueOrDefault(), request.Index, 10);
-            return following.Select(f => f.ToResponse(true, currentUserProfile.Id == f.Id)).ToList();
+            return following.Select(f => f.ToLightResponse(true, currentUserProfile.Id == f.Id)).ToList();
         }
     }
 }

@@ -53,6 +53,14 @@ New event handler will be added in cascade flow for the event PostCreatedEvent
 ### Api 
 Add new endpoint in profile route to allow filter profiles by username.
 
+# Critique
+This project was designed to be a scalable solution using a non relational database.
+There are queries and filters that should be improved, the pagging in some search was added to prevent slow responses.
+The list of posts getting by the followed users might get slow response if the user follow a million of people.
+The search algorithm should be improved.
+The responses might optimized to return the necessary to the UI.
+Indexes in database might be a solution.
+
 # Architecture
 ## Motivation
 
@@ -99,5 +107,3 @@ Domain exceptions are the domain's way of informing the upper tier that somethin
 Evans, Eric - Domain Driven Design
 
 Martin C. Robert - Clean Architecture
-
-

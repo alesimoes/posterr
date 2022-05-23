@@ -33,7 +33,7 @@ namespace As.Posterr.Application.UseCases
             }
 
             var followers  = await _profileRepository.GetFollowers(request.ProfileId.GetValueOrDefault(), request.Index, 10);
-            return followers.Select(f => f.ToResponse(null, currentUserProfile.Id == f.Id)).ToList();
+            return followers.Select(f => f.ToLightResponse(null, currentUserProfile.Id == f.Id)).ToList();
         }
     }
 }

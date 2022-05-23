@@ -60,7 +60,7 @@
 			"response": []
 		},
 		{
-			"name": "Get Posts",
+			"name": "Get Posts Following",
 			"request": {
 				"method": "GET",
 				"header": [
@@ -70,7 +70,7 @@
 					}
 				],
 				"url": {
-					"raw": "https://localhost:44371/api/Post",
+					"raw": "https://localhost:44371/api/Post/following",
 					"protocol": "https",
 					"host": [
 						"localhost"
@@ -78,7 +78,8 @@
 					"port": "44371",
 					"path": [
 						"api",
-						"Post"
+						"Post",
+						"following"
 					]
 				},
 				"description": "Get all posts."
@@ -109,6 +110,38 @@
 					]
 				},
 				"description": "Post a new text.\nSetting postId it will create a repost or quote-post."
+			},
+			"response": []
+		},
+		{
+			"name": "Post Search",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "text/plain"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44371/api/Post/search?text=%23pantanal",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44371",
+					"path": [
+						"api",
+						"Post",
+						"search"
+					],
+					"query": [
+						{
+							"key": "text",
+							"value": "%23pantanal"
+						}
+					]
+				}
 			},
 			"response": []
 		},
