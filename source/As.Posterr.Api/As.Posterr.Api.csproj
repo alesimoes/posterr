@@ -11,7 +11,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\As.Posterr.Application.Abstractions\As.Posterr.Application.Contracts.csproj" />
     <ProjectReference Include="..\As.Posterr.Application\As.Posterr.Application.csproj" />
     <ProjectReference Include="..\As.Posterr.EventBus\As.Posterr.EventPublisher.csproj" />
     <ProjectReference Include="..\As.Posterr.Repository\As.Posterr.Repositories.MongoDB.csproj" />
