@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentMediator" Version="0.4.7" />
+    <PackageReference Include="FluentMediator.Microsoft.Extensions.DependencyInjection" Version="0.4.7" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.3.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\As.Posterr.Application.Abstractions\As.Posterr.Application.Contracts.csproj" />
+    <ProjectReference Include="..\As.Posterr.Application\As.Posterr.Application.csproj" />
+    <ProjectReference Include="..\As.Posterr.EventBus\As.Posterr.EventPublisher.csproj" />
+    <ProjectReference Include="..\As.Posterr.Repository\As.Posterr.Repositories.MongoDB.csproj" />
+  </ItemGroup>
+
+</Project>

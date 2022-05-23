@@ -1,0 +1,354 @@
+{
+	"info": {
+		"_postman_id": "34b4be2f-2360-47a6-86b8-f741a0d9d570",
+		"name": "Posterr",
+		"description": "Get profile from logged-in user.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Profile",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "text/plain"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44371/api/Profile",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44371",
+					"path": [
+						"api",
+						"Profile"
+					]
+				},
+				"description": "Get profile by user Id."
+			},
+			"response": []
+		},
+		{
+			"name": "Profile by Id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "text/plain"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44371/api/Profile/8E955438-E33E-45FF-BDEE-54E7AA74464A",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44371",
+					"path": [
+						"api",
+						"Profile",
+						"8E955438-E33E-45FF-BDEE-54E7AA74464A"
+					]
+				},
+				"description": "Get posts from following profiles by logged-in user."
+			},
+			"response": []
+		},
+		{
+			"name": "Get Posts Following",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "text/plain"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44371/api/Post/following",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44371",
+					"path": [
+						"api",
+						"Post",
+						"following"
+					]
+				},
+				"description": "Get all posts."
+			},
+			"response": []
+		},
+		{
+			"name": "Get Posts All",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "text/plain"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44371/api/Post/All",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44371",
+					"path": [
+						"api",
+						"Post",
+						"All"
+					]
+				},
+				"description": "Post a new text.\nSetting postId it will create a repost or quote-post."
+			},
+			"response": []
+		},
+		{
+			"name": "Post Search",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "text/plain"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44371/api/Post/search?text=%23pantanal",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44371",
+					"path": [
+						"api",
+						"Post",
+						"search"
+					],
+					"query": [
+						{
+							"key": "text",
+							"value": "%23pantanal"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "*/*"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \n  \"text\":\"New post has been made by test 6\",\n   \"postId\":null\n}"
+				},
+				"url": {
+					"raw": "https://localhost:44371/api/Post",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44371",
+					"path": [
+						"api",
+						"Post"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Profile/Posts",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "text/plain"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44371/api/Profile/Posts",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44371",
+					"path": [
+						"api",
+						"Profile",
+						"Posts"
+					]
+				},
+				"description": "Get post from Profile.\nFor default it will start with Index=1, so it will skip the latest 5 posts."
+			},
+			"response": []
+		},
+		{
+			"name": "Profile/{Id}/Posts",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "text/plain"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44371/api/Profile/8E955438-E33E-45FF-BDEE-54E7AA74464A/Posts?",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44371",
+					"path": [
+						"api",
+						"Profile",
+						"8E955438-E33E-45FF-BDEE-54E7AA74464A",
+						"Posts"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null
+						}
+					]
+				},
+				"description": "Follow the profile id."
+			},
+			"response": []
+		},
+		{
+			"name": "Profile/{id}/follow",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "*/*"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44371/api/Profile/8E955438-E33E-45FF-BDEE-54E7AA74464A/follow",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44371",
+					"path": [
+						"api",
+						"Profile",
+						"8E955438-E33E-45FF-BDEE-54E7AA74464A",
+						"follow"
+					]
+				},
+				"description": "Unfollow the profile id"
+			},
+			"response": []
+		},
+		{
+			"name": "Profile/{id}/unfollow",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "*/*"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44371/api/Profile/8E955438-E33E-45FF-BDEE-54E7AA74464A/unfollow",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44371",
+					"path": [
+						"api",
+						"Profile",
+						"8E955438-E33E-45FF-BDEE-54E7AA74464A",
+						"unfollow"
+					]
+				},
+				"description": "Get all profiles that the profile (id) is following."
+			},
+			"response": []
+		},
+		{
+			"name": "Profile/{id}/following",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "text/plain"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44371/api/Profile/0769c29c-5d71-49c8-8685-08ab1bf0b922/following",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44371",
+					"path": [
+						"api",
+						"Profile",
+						"0769c29c-5d71-49c8-8685-08ab1bf0b922",
+						"following"
+					]
+				},
+				"description": "Get all profiles that follow the profile (id)."
+			},
+			"response": []
+		},
+		{
+			"name": "Profile/{id}/followers",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "text/plain"
+					}
+				],
+				"url": {
+					"raw": "https://localhost:44371/api/Profile/8E955438-E33E-45FF-BDEE-54E7AA74464A/followers",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44371",
+					"path": [
+						"api",
+						"Profile",
+						"8E955438-E33E-45FF-BDEE-54E7AA74464A",
+						"followers"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFramework>net5.0</TargetFramework>
+    <ApplicationIcon />
+    <StartupObject />
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\As.Posterr.Application.Abstractions\As.Posterr.Application.Contracts.csproj" />
+    <ProjectReference Include="..\As.Posterr.Domain\As.Posterr.Domain.csproj" />
+  </ItemGroup>
+
+</Project>
