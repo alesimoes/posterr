@@ -21,11 +21,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{809D706A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "As.Posterr.Repositories.MongoDB", "As.Posterr.Repository\As.Posterr.Repositories.MongoDB.csproj", "{11397195-6D82-4D10-A775-1E0499A6AF55}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "As.Posterr.Application.Contracts", "As.Posterr.Application.Abstractions\As.Posterr.Application.Contracts.csproj", "{5F037F28-CD1E-4C3E-8E11-72D985903D72}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "As.Posterr.EventPublisher", "As.Posterr.EventBus\As.Posterr.EventPublisher.csproj", "{0F5BE586-21CB-41B3-B7D7-2E274A029343}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "As.Posterr.Repositories.MongoDB.Migrations", "As.Posterr.Repositories.MongoDB.Migrations\As.Posterr.Repositories.MongoDB.Migrations.csproj", "{47481826-138A-4B90-A7D6-362764752CE4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "As.Posterr.Application.Contracts", "As.Posterr.Application.Contracts\As.Posterr.Application.Contracts.csproj", "{9D1E0A20-4A54-4625-9D64-C8113C92D8EF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,10 +53,6 @@ Global
 		{11397195-6D82-4D10-A775-1E0499A6AF55}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{11397195-6D82-4D10-A775-1E0499A6AF55}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{11397195-6D82-4D10-A775-1E0499A6AF55}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5F037F28-CD1E-4C3E-8E11-72D985903D72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5F037F28-CD1E-4C3E-8E11-72D985903D72}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5F037F28-CD1E-4C3E-8E11-72D985903D72}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5F037F28-CD1E-4C3E-8E11-72D985903D72}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0F5BE586-21CB-41B3-B7D7-2E274A029343}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0F5BE586-21CB-41B3-B7D7-2E274A029343}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0F5BE586-21CB-41B3-B7D7-2E274A029343}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -65,6 +61,10 @@ Global
 		{47481826-138A-4B90-A7D6-362764752CE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{47481826-138A-4B90-A7D6-362764752CE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{47481826-138A-4B90-A7D6-362764752CE4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D1E0A20-4A54-4625-9D64-C8113C92D8EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D1E0A20-4A54-4625-9D64-C8113C92D8EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D1E0A20-4A54-4625-9D64-C8113C92D8EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D1E0A20-4A54-4625-9D64-C8113C92D8EF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -74,9 +74,9 @@ Global
 		{14443F94-53CC-46E6-92CC-3C587E2C4E9B} = {FDC6989A-FE1F-4BF2-82CE-32DC6C35C173}
 		{A216A116-C2C9-4F4D-B55A-8DFECDCE3244} = {809D706A-6689-4883-A192-ACE186189EC9}
 		{11397195-6D82-4D10-A775-1E0499A6AF55} = {4E53D433-8F26-4251-8BA3-B7197755BCAE}
-		{5F037F28-CD1E-4C3E-8E11-72D985903D72} = {FDC6989A-FE1F-4BF2-82CE-32DC6C35C173}
 		{0F5BE586-21CB-41B3-B7D7-2E274A029343} = {4E53D433-8F26-4251-8BA3-B7197755BCAE}
 		{47481826-138A-4B90-A7D6-362764752CE4} = {4E53D433-8F26-4251-8BA3-B7197755BCAE}
+		{9D1E0A20-4A54-4625-9D64-C8113C92D8EF} = {FDC6989A-FE1F-4BF2-82CE-32DC6C35C173}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {030876CB-A8ED-46B4-BFE0-9C994F7BE45D}

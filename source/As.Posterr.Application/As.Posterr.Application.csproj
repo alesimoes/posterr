@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\As.Posterr.Application.Abstractions\As.Posterr.Application.Contracts.csproj" />
+    <ProjectReference Include="..\As.Posterr.Application.Contracts\As.Posterr.Application.Contracts.csproj" />
     <ProjectReference Include="..\As.Posterr.Domain\As.Posterr.Domain.csproj" />
   </ItemGroup>
 
