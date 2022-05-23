@@ -66,10 +66,15 @@ Add new endpoint in profile route to allow filter profiles by username.
 
 # Critique
 This project was designed to be a scalable solution using a non relational database.
+
 There are queries and filters that should be improved, the pagging in some search was added to prevent slow responses.
+
 The list of posts getting by the followed users might get slow response if the user follow a million of people.
+
 The search algorithm should be improved.
+
 The responses might optimized to return the necessary to the UI.
+
 Indexes in database might be a solution.
 
 # Architecture
@@ -99,11 +104,10 @@ When an action is performed on an entity, the event must be triggered for that a
 This allows domain rules to be decoupled from the entity and can be shared and organized in separate files.
 
 Example. A post was written by a user.
-The flow would be text posted -> validate the post -> update the user post count -> commit post in database
+
+Text posted -> validate the post -> update the user post count -> commit post in database
 
 The sequence of events that have occurred can be published to an infrastructure through the Application layer, making it possible to redo the entire price update process perfectly.
-Recalling that the domain does not access and has no knowledge of anything beyond itself, that is, the domain does not know the Application layer and does not know the event publishing infrastructure.
-
 
 ### Domain Service
 Communication between the Application and the Domain is through a service provided by the domain.
