@@ -1,4 +1,5 @@
 using As.Posterr.Api.Configuration;
+using As.Posterr.Api.Midleware;
 using As.Posterr.Repositories.MongoDB;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -53,6 +54,7 @@ namespace As.Posterr.Api
                 app.UseHsts();
             }
 
+            app.UseMiddleware(typeof(ErrorHandlingMiddleware));
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 

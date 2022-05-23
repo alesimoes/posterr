@@ -32,7 +32,6 @@ namespace As.Posterr.Domain.Posts
             this.Validate();
         }
 
-
         private void Validate()
         {
             if (!this.Text.HasValue && this.Repost == null)
