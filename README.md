@@ -25,7 +25,7 @@ There are a Postman Collection inside the folder that can help with all requests
 
 # Planning
 ## Reply a post
-How should the reply should be work?
+How the reply post should be work?
 
 The character to identify the reply in test is "@"?
 
