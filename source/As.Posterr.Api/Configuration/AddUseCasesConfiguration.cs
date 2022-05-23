@@ -21,6 +21,7 @@ namespace As.Posterr.Api.Configuration
             services.AddScoped<GetProfileUseCase>();
             services.AddScoped<PostUseCase>();
             services.AddScoped<UnFollowProfileUseCase>();
+            services.AddScoped<GetSearchPostsUseCase>();
             return services;
         }
     }

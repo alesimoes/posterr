@@ -53,5 +53,13 @@ namespace As.Posterr.Repositories.MongoDB
         {
              _context.Posts.DeleteMany(d => d.Id == post.Id);
         }
+
+        public List<Post> Search(List<string> keywords, int pageIndex, int pageLength)
+        { 
+            var filterCollection = new FilterDefinitionBuilder<Post>();
+            var filter = filterCollection.All(f => f.Keywords, keywords);
+
+            return _context.Posts.Find(filter).SortByDescending(s => s.CreatedDate).Skip(pageIndex * pageLength).Limit(pageLength).ToList();
+        }
     }
 }

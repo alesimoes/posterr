@@ -17,6 +17,7 @@ namespace As.Posterr.Domain.Posts
         public Guid ProfileId { get; protected set; }
         public Post Repost { get; protected set; }
         public DateTime CreatedDate { get; protected set; }
+        public List<string> Keywords { get; protected set; }
         public bool IsQuotePost { get; protected set; }
 
         internal Post(string text, Profile profile, Post repost)
@@ -27,6 +28,7 @@ namespace As.Posterr.Domain.Posts
             this.Repost = repost;
             this.IsQuotePost = this.Repost != null && !string.IsNullOrEmpty(text);
             this.CreatedDate = DateTime.UtcNow;
+            this.Keywords = this.Text?.Keywords;
             this.Validate();
         }
 

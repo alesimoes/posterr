@@ -26,6 +26,7 @@ namespace As.Posterr.Api.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [Route("following")]
         public async Task<IActionResult> Get([FromQuery] int index)
         {
             var result = await _mediator.SendAsync<List<PostResponse>> (new GetPostsRequest { All = false, Index = index });
@@ -53,6 +54,18 @@ namespace As.Posterr.Api.Controllers
         {
             await _mediator.PublishAsync(request);
             return Ok();
+        }
+
+        [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(List<PostResponse>))]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [Route("search")]
+        public async Task<IActionResult> Search([FromQuery] string text, [FromQuery] int index)
+        {
+            var result = await _mediator.SendAsync<List<PostResponse>>(new GetSearchPostRequest { Text = text, Index = index });
+            return Ok(result);
         }
     }
 }

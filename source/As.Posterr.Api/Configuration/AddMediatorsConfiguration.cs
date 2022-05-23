@@ -25,6 +25,9 @@ namespace As.Posterr.Api.Configuration
                     builder.On<GetProfilePostsRequest>().PipelineAsync()
                     .Return<List<PostResponse>, GetProfilePostsUseCase>((handler, request) => handler.Execute(request));
 
+                    builder.On<GetSearchPostRequest>().PipelineAsync()
+                   .Return<List<PostResponse>, GetSearchPostsUseCase>((handler, request) => handler.Execute(request));
+
                     builder.On<PostRequest>().PipelineAsync()
                     .Call<PostUseCase>((handler, request) => handler.Execute(request));
 

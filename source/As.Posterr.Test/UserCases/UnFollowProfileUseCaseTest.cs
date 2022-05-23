@@ -22,6 +22,7 @@ namespace As.Posterr.Test
         private Mock<IFollowRepository> _followRepository;
         private Mock<IEventService> _eventService;
         private ProfileService _profileService;
+        private Mock<IPostRepository> _postRepository;
         private UnFollowProfileUseCase _useCase;
 
         public UnFollowProfileUseCaseTest()
@@ -29,9 +30,10 @@ namespace As.Posterr.Test
             _profileRepository = _profileRepository.Build();
             _followRepository = _followRepository.Build();
             _eventService = _eventService.Build();
+            _postRepository = _postRepository.Build();
             _securityService = _securityService.Build();
 
-            _profileService = new ProfileService(_profileRepository.Object, _securityService.Object, _followRepository.Object, _eventService.Object);
+            _profileService = new ProfileService(_profileRepository.Object, _securityService.Object, _followRepository.Object, _postRepository.Object, _eventService.Object);
             _useCase = new UnFollowProfileUseCase(_profileService);
         }
 

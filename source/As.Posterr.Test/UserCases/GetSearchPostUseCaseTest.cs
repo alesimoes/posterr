@@ -12,23 +12,20 @@ using As.Posterr.Domain;
 using As.Posterr.Test.Builders;
 using As.Posterr.Domain.Exceptions;
 using As.Posterr.Application.Contracts.Posts;
-using As.Posterr.Application.EventHandlers;
-using As.Posterr.Domain.Posts.Events;
 
 namespace As.Posterr.Test
 {
     [TestClass]
-    public class PostCreatedEventHandlerTest
+    public class GetSearchPostUseCaseTest
     {
         private Mock<IProfileRepository> _profileRepository;
         private Mock<ISecurityService> _securityService;
-        private ProfileService _profileService;
         private Mock<IFollowRepository> _followRepository;
         private Mock<IPostRepository> _postRepository;
         private Mock<IEventService> _eventService;
-        private PostCreatedEventHandler _eventHandler;
+        private GetSearchPostsUseCase _useCase;
 
-        public PostCreatedEventHandlerTest()
+        public GetSearchPostUseCaseTest()
         {
             _profileRepository = _profileRepository.Build();
             _followRepository = _followRepository.Build();
@@ -36,18 +33,31 @@ namespace As.Posterr.Test
             _eventService = _eventService.Build();
             _securityService = _securityService.Build();
 
-            _profileService = new ProfileService(_profileRepository.Object, _securityService.Object, _followRepository.Object,_postRepository.Object, _eventService.Object);
-            _eventHandler = new PostCreatedEventHandler(_profileService);
+            _useCase = new GetSearchPostsUseCase(_postRepository.Object);
         }
 
         [TestMethod]
-        public async Task Execute_WhenPostIsCreated_ReturnOk()
+        public async Task Execute_WhenValidSerch_ReturnFilteredPosts()
         {
-            var loggedUserProfile = new Profile(Guid.Parse("0769c29c-5d71-49c8-8685-08ab1bf0b922"), Guid.Parse("e9f03e73-f8da-4807-b744-88d21cbee311"), "loggedUser");
-            var post = new Post("New post", loggedUserProfile, null);
-            var request = new PostCreatedEvent(post);
+            var request = new GetSearchPostRequest
+            {
+               Text = "Return"
+            };
 
-            await _eventHandler.Execute(request);
+            var posts = await _useCase.Execute(request);
+            Assert.IsNotNull(posts);
+        }
+
+        [TestMethod]
+        public async Task Execute_WhenNoEnoughtText_ReturnEmpty()
+        {
+            var request = new GetSearchPostRequest
+            {
+                Text = "Ret"
+            };
+
+            var posts = await _useCase.Execute(request);
+            Assert.AreEqual(posts.Count, 0);
         }
     }
 }

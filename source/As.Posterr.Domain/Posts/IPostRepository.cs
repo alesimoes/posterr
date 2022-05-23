@@ -14,5 +14,6 @@ namespace As.Posterr.Domain.Posts
         Task Add(Post post);
         List<Post> FilterProfilePosts(Guid profileId, int pageIndex, int pageLength);
         void Delete(Post post);
+        List<Post> Search(List<string> keywords, int pageIndex, int pageLength);
     }
 }

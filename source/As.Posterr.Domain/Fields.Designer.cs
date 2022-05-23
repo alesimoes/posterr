@@ -70,7 +70,7 @@ namespace As.Posterr.Domain {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Post.
+        ///   Looks up a localized string similar to Text.
         /// </summary>
         internal static string TextPost {
             get {
