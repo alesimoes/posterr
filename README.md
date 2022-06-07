@@ -1,5 +1,4 @@
-# Alexandre Simões Silva
-# Hexagonal and Clean Architecture by Alexandre Simões Silva
+# Hexagonal and Clean Architecture
 The simplest demo on how to implement a Web Api using .NET Core and MongoDb that protects the business rules from framework dependencies by following the Clean Architecture Principles.
 
 ### Running Application
